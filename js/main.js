@@ -111,6 +111,11 @@ function createDateSelect(){
     $("#dateSelect").append(selectionTime);
 
 $("#submit").click(function(){
+    var formattedDate
+    if($("#selectionTime").val().length<2)
+        formattedDate = $("#selection").val() + "T0"+$("#selectionTime").val() +":00:00Z";
+    else
+        formattedDate = $("#selection").val() + "T"+$("#selectionTime").val() +":00:00Z";
     api(long, lat);
 });
 
