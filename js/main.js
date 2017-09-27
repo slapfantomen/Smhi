@@ -126,5 +126,4 @@ function setADate(i){
 }
 
 $(function () { createDateSelect(); });
-$(function () { api(long,lat); });
 
