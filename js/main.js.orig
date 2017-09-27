@@ -109,15 +109,22 @@ function createDateSelect(){
         $(selectionTime).append(o2);
     }
     $("#dateSelect").append(selectionTime);
-
-<<<<<<< HEAD
+}
 $("#submit").click(function(){
+<<<<<<< HEAD
+    var formattedDate
+    if($("#selectionTime").val().length<2)
+        formattedDate = $("#selection").val() + "T0"+$("#selectionTime").val() +":00:00Z";
+    else
+        formattedDate = $("#selection").val() + "T"+$("#selectionTime").val() +":00:00Z";
+=======
+    console.log("click")
+>>>>>>> e4f1e3100c43bdcd52e4e79bc37820bb8378e91f
     api(long, lat);
 });
 
-//$(function () { api(long,lat); });
-=======
-}
+
+$(function () { api(long,lat); });
 
 function setADate(i){
     var day = new Date();
@@ -127,5 +134,4 @@ function setADate(i){
 }
 
 $(function () { createDateSelect(); });
-$(function () { api(long,lat); });
->>>>>>> 62525f29fe75cccc80328f3207e0077c03d51bec
+
