@@ -109,13 +109,15 @@ function createDateSelect(){
         $(selectionTime).append(o2);
     }
     $("#dateSelect").append(selectionTime);
-
+}
 $("#submit").click(function(){
+    console.log("click")
     api(long, lat);
 });
 
 
 $(function () { api(long,lat); });
+
 function setADate(i){
     var day = new Date();
     day.setDate(day.getDate()+i);
@@ -125,3 +127,4 @@ function setADate(i){
 
 $(function () { createDateSelect(); });
 $(function () { api(long,lat); });
+
