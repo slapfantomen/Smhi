@@ -19,6 +19,7 @@
                         if (result.timeSeries[i].parameters[j].unit === "Cel") {
                             $("#resultdiv").html(`Temp: ${result.timeSeries[i].parameters[j].values} grader celcius`)
                             console.log(`Temp: ${result.timeSeries[i].parameters[j].values} grader celcius`)
+                            
                         }
                     }
                 }
@@ -114,9 +115,6 @@ $("#submit").click(function(){
     console.log("click")
     api(long, lat);
 });
-
-
-$(function () { api(long,lat); });
 
 function setADate(i){
     var day = new Date();
