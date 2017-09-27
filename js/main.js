@@ -109,8 +109,9 @@ function createDateSelect(){
         $(selectionTime).append(o2);
     }
     $("#dateSelect").append(selectionTime);
-
+}
 $("#submit").click(function(){
+    console.log("click")
     var formattedDate
     if($("#selectionTime").val().length<2)
         formattedDate = $("#selection").val() + "T0"+$("#selectionTime").val() +":00:00Z";
@@ -121,6 +122,7 @@ $("#submit").click(function(){
 
 
 $(function () { api(long,lat); });
+
 function setADate(i){
     var day = new Date();
     day.setDate(day.getDate()+i);
@@ -129,4 +131,4 @@ function setADate(i){
 }
 
 $(function () { createDateSelect(); });
-$(function () { api(long,lat); });
+
