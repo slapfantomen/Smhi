@@ -7,15 +7,21 @@
     <title>Smhi</title>
 </head>
 <body>
+<<<<<<< HEAD
     <div id="main">
             <div id="map"></div>
-            <div id="dateSelect">TEST</div>
             <button id="submit">Ok</button>
             <div id="resultdiv" class="bottomright"></div>
             <div id="errordiv" class="bottomright"></div>
             <div id="imagediv" class="bottomleft warm">
             </div>
     </div>
+=======
+    <div id="map"></div>
+    <div id="dateSelect">TEST</div>
+    <div id="resultdiv">test</div>
+    <div id="errordiv"></div>
+>>>>>>> 62525f29fe75cccc80328f3207e0077c03d51bec
 </body>
 </html>
 <script src="js/jquery-1.10.2.js"></script>
