@@ -78,7 +78,43 @@ function placeMarkerAndPanTo(latLng, map) {
     long = longLat.substring(longLat.indexOf('(') + 1, longLat.indexOf(')') - 1).split(', ')[1];
     lat = longLat.substring(longLat.indexOf('(') + 1, longLat.indexOf(')') - 1).split(', ')[0];
 }
+function createDateSelect(){
+    var selection=document.createElement("select");
+    selection.id="selection";
+    for(var i = 0; i < 10; i++)
+    {
+        var o1 = document.createElement("option");
+        $(o1).text(setADate(i));
+        $(o1).val(setADate(i));
+        $(selection).append(o1);
+    }
+    $("#dateSelect").append(selection);
+    var selectionTime=document.createElement("select");
+    selection.id="selectionTime";
+    for(var j = 0; j < 24; j++)
+    {
+        var o2 = document.createElement("option");
+        if(i<10)
+        {
+            $(o2).text("0"+(j+1).toString);
+            $(o2).val("0"+(j+1).toString);
+        }
+        else{
+            $(o2).text(j+1);
+            $(o2).val(j+1);
+        }
+        $(selectionTime).append(o2);
+    }
+    $("#dateSelect").append(selectionTime);
 
+}
 
+function setADate(i){
+    var day = new Date();
+    day.setDate(day.getDate()+i);
+    var formattedDate = moment(day).format('YYYY-MM-DD');
+    return formattedDate;
+}
 
+$(function () { createDateSelect(); });
 $(function () { api(long,lat); });
