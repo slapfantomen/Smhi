@@ -1,4 +1,4 @@
-﻿function api(long, lat) {
+﻿function api(lon, lat) {
     var tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
     var formattedDate = moment(tomorrow).format('YYYY-MM-DD');
@@ -6,7 +6,7 @@
     //console.log("fdate",fdate)
 
     $.ajax({
-        url: 'https://opendata-download-metfcst.smhi.se/api/category/pmp2g/version/2/geotype/point/lon/16/lat/58/data.json',
+        url: `https://opendata-download-metfcst.smhi.se/api/category/pmp2g/version/2/geotype/point/lon/${lon}/lat/${lat}/data.json`,
         method: 'GET'
     })
         .done(function (result) {
