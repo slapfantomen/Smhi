@@ -1,4 +1,6 @@
 ﻿function api(lon, lat) {
+    console.log("lon",lon)
+    console.log("lat",lat)
     var tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
     var formattedDate = moment(tomorrow).format('YYYY-MM-DD');
@@ -6,15 +8,16 @@
     //console.log("fdate",fdate)
 
     $.ajax({
-        url: `https://opendata-download-metfcst.smhi.se/api/category/pmp2g/version/2/geotype/point/lon/${lon}/lat/${lat}/data.json`,
+        url: `https://opendata-download-metfcst.smhi.se/api/category/pmp2g/version/2/geotype/point/lon/${parseFloat(lon).toFixed(6)}/lat/${parseFloat(lat).toFixed(6)}/data.json`,
         method: 'GET'
     })
-        .done(function (result) {
+        .done(function (result) {   
             for (var i = 0; i < result.timeSeries.length; i++) {
                 if (result.timeSeries[i].validTime.match(formattedDate)) {
                     console.log(result.timeSeries[i].validTime);
                     for (var j = 0; j < result.timeSeries[i].parameters.length; j++) {
                         if (result.timeSeries[i].parameters[j].unit === "Cel") {
+                            $("#resultdiv").html(`Temp: ${result.timeSeries[i].parameters[j].values} grader celcius`)
                             console.log(`Temp: ${result.timeSeries[i].parameters[j].values} grader celcius`)
                         }
                     }
@@ -79,6 +82,8 @@ function placeMarkerAndPanTo(latLng, map) {
     lat = longLat.substring(longLat.indexOf('(') + 1, longLat.indexOf(')') - 1).split(', ')[0];
 }
 
+$("#submit").click(function(){
+    api(long, lat);
+});
 
-
-$(function () { api(long,lat); });
+//$(function () { api(long,lat); });
